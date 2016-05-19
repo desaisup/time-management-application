@@ -1,0 +1,32 @@
+
+
+<h2 align="center" style="padding-right: 16%;padding-bottom: 1%;padding-top: 2%">List Of Employees Under The Project </h2>
+
+ 
+ <div class="col-md-6 col-md-offset-2">
+
+ <table class="table table-bordered">
+ <thead>
+ <%# raise @assign_projects.inspect %>
+     <tr>
+     <th>Employee Name</th>
+      <!--  <th>Delete</th>-->
+      </tr> 
+      <tr>
+     <% unless @emp.nil? %>
+      <%#= puts @emp.inspct   %>
+      <% @emp.each do |e| %>
+      
+      <td><%= link_to e.emp_name,task_show_project_index_path(:id=>e.id) %></td>
+      
+       <!-- <td><%= link_to "<span class='glyphicon glyphicon-pencil Delete '>".html_safe ,
+                 :controller=>'project',
+                 :action=>"delete_employee",
+                 :id=>e.id
+                 %>  -->
+    </tr>
+  <% end %>
+  <% end %>
+    </thead>
+</table> 
+</div>

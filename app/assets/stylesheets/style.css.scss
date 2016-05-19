@@ -1,0 +1,26 @@
+
+body{
+margin-left:10%;
+margin-top: 20%;
+
+
+}
+.navbar-default {
+  background-color:green;
+}
+
+#footer {
+ 
+  background-color: #f5f5f5;
+}
+#footer > .container {
+  padding-top:5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.navbar-default .navbar-nav li:hover a {
+	position:relaative;
+	display:block;
+color:white;
+}
+

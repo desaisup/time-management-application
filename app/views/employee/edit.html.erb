@@ -1,0 +1,59 @@
+<div class="row">
+ <div class="form-horizontal">
+   <h2 align="center" style="padding-right: 16%;padding-bottom: 3%;"> Employee Details</h2
+  
+  <fieldset>
+  <!-- Form Starts Here -->
+   <%= form_for @employee, :url => {:controller=>"employee",:action=>"update"} do |f| %>
+     
+    <div class="form-group">
+     <label class="col-md-4 control-label" for="text-input">Employee Name</label>
+      <div class="col-md-2">
+       <%=f.text_field :emp_name,:class=>"form-control input-md"%>
+      </div>
+    </div>
+
+    <div class="form-group">
+     <label class="col-md-4  control-label" for="text-input">Employee Id</label>
+      <div class="col-md-2">
+       <%=f.text_field :emp_id,:class=>"form-control input-md" %>
+      </div>
+    </div>
+  
+    <div class="form-group">
+     <label class="col-md-4  control-label" for="text-input">Mobile Number</label>
+      <div class="col-md-2">
+       <%=f.text_field :mbl_number,:class=>"form-control input-md" %>
+      </div>
+    </div>
+   
+  <div class="form-group">
+  <label class="col-md-4  control-label" for="text-input">User Email</label>
+    <div class="col-md-2">
+     <%#=select_field :user_id, User.all.map{|u| [u.email,u.id]},{:include_blank => "Select user email id"},:class=>"form-control input-md" %>
+     <%#= collection_select(User.all.map(&:id), :id, :email, User.first.email, {:prompt => true})%>
+     <%#= select("user_id", "email", User.all.map(&:email)) %>
+   <%= f.select :user_id,User.all.map{|u| [u.email,u.id]},{:prompt=>"Select Email"},{:class=>"form-control input-md"}%>
+   </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4  control-label" for="text-input">Position</label>
+    <div class="col-md-2">
+     <%=f.text_field :position,:class=>"form-control input-md" %>
+   </div>
+  </div>
+    
+  
+
+ <div class="form-group">
+  <label class="col-md-4 control-label" for="buttoninput"></label>
+   <div class="col-md-4">
+     <%= f.submit "submit",:class=>"btn btn-success"%>
+   </div>
+ </div>
+	<%end%>
+</fieldset>
+</div>
+</div>
+
+

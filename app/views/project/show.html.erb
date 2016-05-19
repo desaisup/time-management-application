@@ -1,0 +1,57 @@
+
+
+
+<h2 align="center" style="padding-right: 16%;padding-bottom: 3%;padding-top: 2%">Details Of Projects</h2>
+<div class="table-responsive"> 
+ <table class="table table-bordered">
+  <thead>
+    <tr>
+    <th>Project Name</th>
+     <th>Location</th>
+      <th>Project Lead</th>
+       <th>Team Lead</th>
+        <th>Total Team</th>
+         <th>Desc Projects</th>
+          <th>Durations</th>
+           <th>From Date</th>
+            <th>To Date </th>
+            <th>Edit </th>
+            <th>Delete </th>
+             
+    </tr>
+  </thead>
+ <tbody>
+      <tr>
+      <% unless @project.nil? %>
+      <% @project.each do |project| %>
+      <%#= @project.inspect %>
+       <td><%= link_to project.project_name,team_lead_details_project_index_path( :id=> project.id ) %> </td>
+       <td><%= project.location %> </td>
+       <td><%= project.project_lead %> </td>
+       <td><%= project.team_lead %><%#= link_to project.team_lead,:controller=>"create_project",:action=>"team_lead_details",:id=>project.id %> </td>
+       <td><%= project.total_team %> </td>
+       <td><%= project.desc_project %> </td>
+       <td><%= project.duration %> </td>
+       <td><%= project.from_date %> </td>
+       <td><%= project.from_date %> </td>
+       <td><%= link_to "<span class='glyphicon glyphicon-pencil project edit'>".html_safe ,
+                :controller=>'project',
+                :action=>'edit_project',
+                 :id=>project.id
+                 %>
+       <td><%= link_to "<span class='glyphicon glyphicon-pencil Delete '>".html_safe ,
+                :controller=>'project',
+                 :action=>"delete",
+                 :id=>project.id
+                 %>
+
+       </td>
+       </tr>
+<%end%>
+<%end%>
+
+</tbody>
+</table>
+ </div> 
+
+

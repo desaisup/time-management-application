@@ -1,0 +1,48 @@
+ <h2 align="center" style="padding-right: 16%;padding-bottom: 3%;">Employee Details</h2>
+ 
+<div class="table table-responsive">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+   <th>Sl No</th>
+    <th>Employee Name</th>
+     <th>Position</th>
+      <th>Mobile Number</th>
+        <th>User Email Id</th>
+        <th>Employee Id</th>
+         <th>Edit</th>
+          <th>Delete</th>
+       
+             
+    </tr>
+  </thead>
+  
+ <tbody>
+   <tr>
+    <% unless @employee.nil? %>
+     <% @employee.each_with_index do |emp,index| %>
+      <td><%= index + 1 %></td>
+       <td><%= emp.emp_name %> </td>
+        <td><%= emp.position %> </td>
+         <td><%= emp.mbl_number %> </td>
+          <td><%= emp.user.try(:email) %> </td>
+           <td><%= emp.emp_id %> </td>
+            
+            <td><%= link_to "<span class='glyphicon glyphicon-pencil employee edit'>".html_safe ,
+              :controller=>"employee",
+              :action=>"edit",
+              :id=>emp.id %></td>
+           
+           <td><%= link_to "<span class='glyphicon glyphicon-pencil delete'>".html_safe,:controller=>"employee",
+             :action=>"delete",
+             :id=>emp.id %> </td>
+           </tr>
+    <%end%>
+    <%end%>
+
+ </tbody>
+ </table>
+ </div>
+
+
+

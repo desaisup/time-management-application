@@ -1,0 +1,49 @@
+<h2 align="center" style="padding-right: 16%;padding-bottom: 3%;padding-top: 2%">Details of Assigned Projects</h2>
+
+
+<div class="table table-responsive">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+   <th>Sl No</th>
+    <th>Employee Name</th>
+     <th>Project Name</th>
+      <th>From Date</th>
+        <th>To Date</th>
+        <th>Duration</th>
+         <th>Edit</th>
+          <th>Delete</th>
+       
+             
+    </tr>
+  </thead>
+  
+ <tbody>
+   <tr>
+    <% unless @assign_project.nil? %>
+     <% @assign_project.each_with_index do |ap,index| %>
+      <td><%= index + 1 %></td>
+       <td><%= ap.employee.emp_name %> </td>
+        <td><%= ap.project.project_name %> </td>
+         <td><%= ap.from_date %> </td>
+          <td><%= ap.to_date %> </td>
+           <td><%= ap.duration %> </td>
+            
+            <td><%= link_to "<span class='glyphicon glyphicon-pencil employee edit'>".html_safe ,
+              :controller=>"assign_project",
+              :action=>"edit",
+              :id=>ap.id %></td>
+           
+           <td><%= link_to "<span class='glyphicon glyphicon-pencil delete'>".html_safe,:controller=>"assign_project",
+             :action=>"delete",
+             :id=>ap.id %> </td>
+           </tr>
+    <%end%>
+    <%end%>
+
+ </tbody>
+ </table>
+ </div>
+
+
+

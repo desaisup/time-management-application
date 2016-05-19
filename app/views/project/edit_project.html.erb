@@ -1,0 +1,94 @@
+
+<div class="form-horizontal">
+<h2 align="center" style="padding-right: 16%;padding-bottom: 3%;">Create Project</h2>
+
+
+
+<fieldset>
+<!-- Form started here -->
+<%= form_for @project, :url => {:controller=>"project", :action=>"update",:method => "PUT"} do |f| %>
+
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="text-input">Project Name</label>
+     <div class="col-md-2">
+      <%= f.text_field :project_name,:class=>"form-control input-md"%>
+     </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="text-input">Location</label>
+     <div class="col-md-2">
+      <%= f.text_field :location,:class=>"form-control input-md"%>
+     </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="text-input">Project Lead</label>
+     <div class="col-md-2">
+      <%= f.text_field :project_lead, :class=>"form-control input-md"%>
+     </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="text-input">Team Lead</label>
+     <div class="col-md-2">
+      <%= f.text_field :team_lead,:class=>"form-control input-md"%>
+     </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="text-input">Total Team</label>
+     <div class="col-md-2">
+      <%= f.text_field :total_team,:class=>"form-control input-md"%>
+     </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="text-input">Description of Project</label>
+     <div class="col-md-2">
+      <%= f.text_field :desc_project, :class=>"form-control input-md"%>
+     </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="text-input">Duration of Project</label>
+     <div class="col-md-2">
+      <%= f.text_field :duration, :class=>"form-control input-md"%>
+     </div>
+  </div>+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="text-input" id="datepicker">From Date</label>
+     <div class="col-md-2">
+      <%= f.text_field :from_date, :class=>"form-control input-md"%>
+     </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="text-input" id="datepicker">To Date</label>
+     <div class="col-md-2">
+      <%= f.text_field :to_date, :class=>"form-control input-md"%>
+     </div>
+  </div>
+
+<div class="form-group">
+ <label class="col-md-4 control-label" for="buttoninput"></label>
+<div class="col-md-2">
+<%= f.submit "Update",:class=>"btn btn-success"%>
+</div>
+</div>
+
+
+<%end%>  
+
+</fieldset>
+</div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }else{
+      //Init stuff here
+    }
+  })
+</script>

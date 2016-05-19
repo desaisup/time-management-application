@@ -1,0 +1,64 @@
+<div class="row">
+<div class="form-horizontal">
+<h2 align="center" style="padding-right: 16%;padding-bottom: 3%;">Assign Project</h2>
+
+<fieldset>
+<!-- Form started here -->
+<%= form_for :assign_project, :url => {:controller=>"assign_project", :action=>"create"} do |f| %>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="text-input">Employee Name</label>
+     <div class="col-md-2">
+     <%= f.select :employee_id,Employee.all.map{|e| [e.emp_name,e.id]},{:include_blank => "Select employee name"},:class=>"form-control input-md"%>
+     </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="text-input">Project Name</label>
+     <div class="col-md-2">
+      <%= f.select :project_id,Project.all.map{|c| [c.project_name,c.id]},{:include_blank=>"Select project"},:class=>"form-control input-md"%>
+     </div>
+  </div>
+  <div class="form-group">
+     <label class="col-md-4 control-label" for="text-input">Duration</label>
+     <div class="col-md-2">
+      <%= f.text_field :duration,:class=>"form-control input-md"%>
+     </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="text-input">From Date</label>
+     <div class="col-md-2">
+      <%= f.text_field :from_date, :class=>"form-control input-md"%>
+     </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="text-input">To Date</label>
+     <div class="col-md-2">
+      <%= f.text_field :to_date,:class=>"form-control input-md"%>
+     </div>
+  </div>
+   
+ <div class="form-group">
+  <label class="col-md-4 control-label" for="buttoninput"></label>
+   <div class="col-md-2">
+  <%= f.submit "submit",:class=>"btn btn-success"%>
+   </div>
+ </div>
+  
+
+<%end%>  
+</fieldset>
+</div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }else{
+      //Init stuff here
+    }
+  })
+</script>
