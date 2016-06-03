@@ -1,14 +1,28 @@
 require 'spec_helper'
 require 'rails_helper'
 
-describe "Checking for params"  do
-    it "it is invalid without a email" do
-    	puts "mmm"
-    @alaramboxjob = User.new(email:nil)
-    @alaramboxjob.valid?
-       expect( @alaramboxjob.errors[:email]).to include("can't be blank")
+
+    
+describe User do
+
+  describe '#email' do
+  
+    it 'should validate presence' do
+      record = User.new
+      record.email = '' # invalid state
+      record.valid? # run validations
+      record.errors[:email].should include("can't be blank") # check for presence of error
+
+      record.email = 'sunil@careerbuilder.com' # valid state
+      record.valid? # run validations
+      record.errors[:email].should_not include("can't be blank") # check for absence of error
+    end
+    
   end
+  
 end
+
+ 
 
 
 
@@ -51,19 +65,3 @@ RSpec.describe "#answer" do
 end
 
 =end
-
-=begin
-RSpec.describe "#answer" do
-
-  RESULTS = { 3 => "Fizz",
-              5 => "Buzz",
-              11 => 11 }
-
-  RESULTS.each do |value, answer|
-    it "returns #{answer} when the input is #{value}" do 
-      result = FizzBuzz.new.answer(value)
-      expect(result).to eq(answer)
-    end
-  end
-
-end=end
