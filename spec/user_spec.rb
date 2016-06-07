@@ -2,24 +2,18 @@ require 'spec_helper'
 require 'rails_helper'
 
 
-    
-describe User do
+    puts "outside rspec........................"
+RSpec.describe User, type: :model do
+  puts "BBBBBBBBBBBBBBBBBBBBBBB"
+  it 'if email is empty' do
+    puts "55555555555555555555"
+    user = User.new(email: 'shiva@careerbuilder.com ')
+     puts "54444444444444555"
 
-  describe '#email' do
-  
-    it 'should validate presence' do
-      record = User.new
-      record.email = '' # invalid state
-      record.valid? # run validations
-      record.errors[:email].should include("can't be blank") # check for presence of error
+    result = user.save
 
-      record.email = 'sunil@careerbuilder.com' # valid state
-      record.valid? # run validations
-      record.errors[:email].should_not include("can't be blank") # check for absence of error
-    end
-    
+    expect(result).to be(false)
   end
-  
 end
 
  
