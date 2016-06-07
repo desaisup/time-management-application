@@ -35,7 +35,9 @@ gem 'bootstrap-will_paginate', '0.0.10'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'ci_reporter_cucumber'
+#gem 'ci_reporter_minitest'
+gem 'ci_reporter_rspec'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -49,10 +51,10 @@ group :development do
   gem 'spring'
 
   #For Test Driven Development
-  #group :development, :test do
-  #gem 'rspec-rails', '~> 3.0.0.beta'
+  group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
   #gem "time_ago", path: "../time_ago"
-#end
+end
 
 end
 
